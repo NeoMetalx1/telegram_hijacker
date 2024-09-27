@@ -11,4 +11,4 @@ python builder.py
 ```
 
 ## Usage
-
+When you launch buider it will ask you to discord_webhook url, next it will ask path to tdata(you can choose default one)
