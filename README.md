@@ -1,10 +1,8 @@
-#Guide
+# Guide
 
-## Установка
+### Installation
 
-### 1. Клонирование репозитория
-
-Сначала клонируйте репозиторий или скопируйте файлы утилиты на ваш компьютер:
+Using git
 
 ```bash
 git clone https://github.com/your-repo/network_tool.git
