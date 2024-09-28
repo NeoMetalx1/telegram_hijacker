@@ -1,4 +1,5 @@
-![logotrans](https://github.com/user-attachments/assets/3bd2050e-5257-4da2-8604-5333abe0c986)
+
+![logotrans](https://github.com/user-attachments/assets/a0cba356-be82-4243-b641-335f47dca303)
 
 
 ![Screenshot_20240928_001624](https://github.com/user-attachments/assets/ea50f406-b5ad-4d13-a458-74b734a925d1)
