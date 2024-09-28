@@ -1,6 +1,6 @@
-
-![logotrans](https://github.com/user-attachments/assets/a0cba356-be82-4243-b641-335f47dca303)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a0cba356-be82-4243-b641-335f47dca303"/>
+</p>
 
 ![Screenshot_20240928_001624](https://github.com/user-attachments/assets/ea50f406-b5ad-4d13-a458-74b734a925d1)
 
