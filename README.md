@@ -2,7 +2,7 @@
   <img src="https://github.com/user-attachments/assets/a0cba356-be82-4243-b641-335f47dca303"/>
 </p>
 
-![Screenshot_20240928_001624](https://github.com/user-attachments/assets/ea50f406-b5ad-4d13-a458-74b734a925d1)
+![Screenshot_20240928_001624](https://github.com/user-attachments/assets/ac15f675-713e-49ea-b352-0f6e06c48880)
 
 # Guide
 
