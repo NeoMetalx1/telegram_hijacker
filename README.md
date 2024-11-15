@@ -31,5 +31,4 @@ python -m auto_py_to_exe
 Then choose (generated_file.py) also I recommend make it --onefile and --windowed
 
 ## Problems
-### IF YOU GET EMPTY ZIP IT MEANS PATH NOT CORRECT
 ### IF YOU DONT GET MESSAGE CHECK YOUR DISCORD_WEBHOOK URL ALSO IT CAN CAUSE OF LARGE TDATA
