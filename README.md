@@ -17,9 +17,9 @@ python builder.py
 ```
 
 ## Usage
-When you launch buider it will ask you to discord_webhook url, next it will ask path to tdata (you can choose default one)
+When you launch buider it will ask you to discord_webhook url
 
-If you do all well file named (generated_file.py) need to appear
+If you do all right file named (generated_file.py) will build
 
 ### Optional
 
