@@ -29,7 +29,7 @@ for root, dirs, files in os.walk(search_pathC):
 #search folder
 
 user = os.path.join(full_path) 
-hook = ""
+hook = "{hook}"
 # sources end
 
 #task_kill
