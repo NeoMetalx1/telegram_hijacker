@@ -34,9 +34,9 @@ def main():
     
     if user_option == 1:
         create_python_file(hook)
-        print("File 'generated_file.py' generated!")
+        print("   File 'generated_file.py' generated!")
     if user_option == 2:
-        print("Coming soon!")
+        print("   Coming soon!")
 
 def set_def_color():
     sys.stdout.write("\033[0m")
