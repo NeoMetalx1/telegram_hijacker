@@ -28,9 +28,15 @@ def main():
     print(logo)
 
     hook = input("[Enter web hook url]: ")
-
-    create_python_file(hook)
-    print("File 'generated_file.py' generated!")
+    
+    print("   1. Build python file\n   2. Build exe file")
+    user_option = int(input("[Choose option]: "))
+    
+    if user_option == 1:
+        create_python_file(hook)
+        print("File 'generated_file.py' generated!")
+    if user_option == 2:
+        print("Coming soon!")
 
 def set_def_color():
     sys.stdout.write("\033[0m")
