@@ -17,7 +17,7 @@ python builder.py
 ```
 
 ## Usage
-When you launch buider it will ask you to discord_webhook url
+When you launch builder it will ask you to discord_webhook url
 
 Then you can choose between two options 1.build python file 2.build exe file
 If you choose first option generated_file.py need to appear in telegram_hijacker directory
