@@ -1,3 +1,5 @@
+# Program was not update for long time (update coming soon)
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a0cba356-be82-4243-b641-335f47dca303"/>
 </p>
