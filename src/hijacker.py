@@ -34,7 +34,7 @@ def delete_fold():
     folder_path1 = os.path.join(user, 'user_data')
     folder_path2 = os.path.join(user, 'emoji')
     time.sleep(2)
-    if os.path.isdir(folder_path) == True:
+    if os.path.isdir(folder_path1) == True:
         shutil.rmtree(folder_path1)
         shutil.rmtree(folder_path2)
 
